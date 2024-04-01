@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  mysqldb:
+    image: "mysql:8.0"
+    restart: always
+    container_name: userdb
+    ports:
+      - 3304:3306
+    environment:
+      MYSQL_DATABASE: marketplaceUser
+      MYSQL_USER: adminuser
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: Amila_Rpw
+    volumes:
+      - mysql-data-user:/var/lib/mysql-user
+volumes:
+  mysql-data-user:
