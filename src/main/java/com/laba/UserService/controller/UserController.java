@@ -29,4 +29,10 @@ public class UserController {
 
     }
 
+
+    @GetMapping("/infoByNumber")
+    public ResponseEntity<UserInfoResponseDto> infoByPhoneNumber(@RequestParam String phoneNumber) {
+        return ResponseEntity.ok().body(userService.infoByPhoneNumber(phoneNumber));
+
+    }
 }

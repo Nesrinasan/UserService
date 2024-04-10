@@ -34,6 +34,13 @@ public class UserService {
 
     }
 
+    public UserInfoResponseDto infoByPhoneNumber(String phoneNumber){
+        Optional<Users> optionalUsers = userRepository.findByPhoneNumber(phoneNumber);
+        Users users = optionalUsers.orElseThrow(GeneralException::new);
+        return userMapper.userToInfoResponseDto(users);
+
+    }
+
     public Optional<Users> findUserById(Long id){
         return userRepository.findById(id);
     }
